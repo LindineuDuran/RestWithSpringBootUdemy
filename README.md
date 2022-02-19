@@ -1,6 +1,4 @@
 # RestWithSpringBootUdemy
-- [REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker](https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/)
-
 ### [REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker](https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/?couponCode=GTHB_FLASH_SALE2021)
 #### [Desenvolva uma API REST do zero absoluto atendendo todos os níveis de maturidade RESTful e implante na AWS + React JS](https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/?couponCode=GTHB_FLASH_SALE2021)
 
