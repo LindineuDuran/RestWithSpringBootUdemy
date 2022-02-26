@@ -130,6 +130,141 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = json by query param.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1?mediaType=json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "mediaType",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = xml by query param.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1?mediaType=xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "mediaType",
+							"value": "xml"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = xml by header param",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = json by header param",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = yaml by header param Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/x-yaml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
