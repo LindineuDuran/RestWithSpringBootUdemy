@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.llduran.restwithspringbootudemy.RestWithSpringBootUdemyApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.416 s - in br.com.llduran.restwithspringbootudemy.RestWithSpringBootUdemyApplicationTests
