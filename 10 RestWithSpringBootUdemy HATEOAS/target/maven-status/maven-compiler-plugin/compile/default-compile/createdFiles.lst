@@ -7,7 +7,6 @@ br\com\llduran\controller\PersonController.class
 br\com\llduran\config\WebConfig.class
 br\com\llduran\exception\ResourceNotFoundException.class
 br\com\llduran\converter\DozerConverter.class
-br\com\llduran\serialization\converter\YamlJackson2HttpMessageConverter.class
 br\com\llduran\converters\NumberConverter.class
 br\com\llduran\services\PersonServices.class
 br\com\llduran\Startup.class
