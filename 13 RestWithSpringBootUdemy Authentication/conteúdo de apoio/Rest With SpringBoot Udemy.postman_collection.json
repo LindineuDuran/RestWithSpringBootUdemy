@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "dffbf28a-17e7-4b4a-93a3-4ccfab163d4e",
+		"name": "Rest With SpringBoot Udemy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List All Persons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find a Person By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n   {\r\n        \"first_name\": \"Lucas\",\r\n        \"last_name\": \"Duran\",\r\n        \"address\": \"Some Address in Brazil 1\",\r\n        \"gender\": \"Male\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Person",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"first_name\": \"Ana Sophia\",\r\n        \"last_name\": \"Duran\",\r\n        \"address\": \"Some Address in Brazil 1\",\r\n        \"gender\": \"Female\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Person",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = json by query param.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1?mediaType=json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "mediaType",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = xml by query param.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1?mediaType=xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "mediaType",
+							"value": "xml"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = xml by header param",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = json by header param",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Persons - content negotiation = yaml by header param Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/x-yaml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/person/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

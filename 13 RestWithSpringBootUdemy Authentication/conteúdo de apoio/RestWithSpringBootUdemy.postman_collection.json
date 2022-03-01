@@ -10,53 +10,6 @@
 			"name": "api",
 			"item": [
 				{
-					"name": "Authentication",
-					"item": [
-						{
-							"name": "Obtem Token de Autenticação",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"if(responseCode.code >= 200 && responseCode.code <= 299)\r",
-											"{\r",
-											"    var jsonData = JSON.parse(responseBody);\r",
-											"    pm.environment.set(\"bearer_token\", pm.response.json().token);\r",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"username\": \"{{user}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}/auth/signin",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"auth",
-										"signin"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "book/v1",
 					"item": [
 						{
@@ -66,23 +19,24 @@
 									"name": "Search a book by id",
 									"request": {
 										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{bearer_token}}",
-												"type": "text"
-											}
-										],
+										"header": [],
 										"url": {
-											"raw": "{{host}}/api/book/v1/1",
+											"raw": "{{baseUrl}}/api/book/v1/:id",
 											"host": [
-												"{{host}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"book",
 												"v1",
-												"1"
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "91849534",
+													"description": "(Required) id"
+												}
 											]
 										}
 									},
@@ -134,16 +88,11 @@
 											{
 												"key": "Content-Type",
 												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{bearer_token}}",
-												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"author\": \"ipsum tempor\",\n    \"id\": 44884596,\n    \"launch_date\": \"1975-05-16T16:12:25.253Z\",\n    \"price\": -86092025.23675555,\n    \"title\": \"pariatur exercitation\"\n}",
+											"raw": "{\n    \"author\": \"ipsum tempor\",\n    \"id\": 44884596,\n    \"launch_date\": \"1975-05-16T16:12:25.253Z\",\n    \"links\": [\n        {\n            \"deprecation\": \"irure Lorem\",\n            \"href\": \"aute nostrud esse pariatur\",\n            \"hreflang\": \"fugiat in dolore\",\n            \"media\": \"sit voluptate sed\",\n            \"name\": \"sed ex\",\n            \"profile\": \"officia cillum consequat sit\",\n            \"rel\": {},\n            \"title\": \"id dolor Exce\",\n            \"type\": \"laborum commodo magna sint\"\n        },\n        {\n            \"deprecation\": \"incididunt ut\",\n            \"href\": \"nostrud proident\",\n            \"hreflang\": \"pariat\",\n            \"media\": \"voluptate velit ut culpa\",\n            \"name\": \"est occaecat\",\n            \"profile\": \"sint quis tempor eu qui\",\n            \"rel\": {},\n            \"title\": \"ipsum \",\n            \"type\": \"incididunt\"\n        }\n    ],\n    \"price\": -86092025.23675555,\n    \"title\": \"pariatur exercitation\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -151,15 +100,22 @@
 											}
 										},
 										"url": {
-											"raw": "{{host}}/api/book/v1/16",
+											"raw": "{{baseUrl}}/api/book/v1/:id",
 											"host": [
-												"{{host}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"book",
 												"v1",
-												"16"
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "91849534",
+													"description": "(Required) id"
+												}
 											]
 										}
 									},
@@ -207,23 +163,24 @@
 									"name": "Exclude a book",
 									"request": {
 										"method": "DELETE",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{bearer_token}}",
-												"type": "text"
-											}
-										],
+										"header": [],
 										"url": {
-											"raw": "{{host}}/api/book/v1/16",
+											"raw": "{{baseUrl}}/api/book/v1/:id",
 											"host": [
-												"{{host}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"book",
 												"v1",
-												"16"
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "91849534",
+													"description": "(Required) id"
+												}
 											]
 										}
 									},
@@ -273,17 +230,11 @@
 							"name": "List of books recorded",
 							"request": {
 								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{bearer_token}}",
-										"type": "text"
-									}
-								],
+								"header": [],
 								"url": {
-									"raw": "{{host}}/api/book/v1",
+									"raw": "{{baseUrl}}/api/book/v1",
 									"host": [
-										"{{host}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
@@ -332,16 +283,11 @@
 									{
 										"key": "Content-Type",
 										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{bearer_token}}",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"author\": \"exercitation\",\n    \"id\": -6519276,\n    \"launch_date\": \"1948-10-02T16:06:42.574Z\",\n    \"price\": 36810673.03358522,\n    \"title\": \"adipisicing\"\n}",
+									"raw": "{\n    \"author\": \"exercitation\",\n    \"id\": -6519276,\n    \"launch_date\": \"1948-10-02T16:06:42.574Z\",\n    \"links\": [\n        {\n            \"deprecation\": \"irure sunt in\",\n            \"href\": \"tempor ullamco\",\n            \"hreflang\": \"Excepte\",\n            \"media\": \"do sint\",\n            \"name\": \"ullamco dolore\",\n            \"profile\": \"amet cillum commodo\",\n            \"rel\": {},\n            \"title\": \"veniam Excepteur est Ut\",\n            \"type\": \"sint in reprehenderit voluptate\"\n        },\n        {\n            \"deprecation\": \"ad laboris voluptate consectetur sunt\",\n            \"href\": \"laborum ad\",\n            \"hreflang\": \"incididunt officia culpa\",\n            \"media\": \"enim\",\n            \"name\": \"ipsum labore\",\n            \"profile\": \"cillum sunt irure\",\n            \"rel\": {},\n            \"title\": \"exercitation tempor est\",\n            \"type\": \"dolore in non laborum\"\n        }\n    ],\n    \"price\": 36810673.03358522,\n    \"title\": \"adipisicing\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -349,9 +295,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/api/book/v1",
+									"raw": "{{baseUrl}}/api/book/v1",
 									"host": [
-										"{{host}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
@@ -404,23 +350,24 @@
 									"name": "Search a person by id",
 									"request": {
 										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{bearer_token}}",
-												"type": "text"
-											}
-										],
+										"header": [],
 										"url": {
-											"raw": "{{host}}/api/person/v1/1",
+											"raw": "{{baseUrl}}/api/person/v1/:id",
 											"host": [
-												"{{host}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"person",
 												"v1",
-												"1"
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "91849534",
+													"description": "(Required) id"
+												}
 											]
 										}
 									},
@@ -472,16 +419,11 @@
 											{
 												"key": "Content-Type",
 												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{bearer_token}}",
-												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"first_name\": \"Ana Sophia\",\n    \"last_name\": \"Duran\",\n    \"address\": \"Some Address in Brazil 1\",\n    \"gender\": \"Female\"\n}",
+											"raw": "{\n    \"address\": \"occaecat dolore deserunt\",\n    \"first_name\": \"tempor in\",\n    \"gender\": \"amet occaecat in\",\n    \"id\": 13166643,\n    \"last_name\": \"tempor dolore\",\n    \"links\": [\n        {\n            \"deprecation\": \"eu in ex\",\n            \"href\": \"Ut\",\n            \"hreflang\": \"quis laborum\",\n            \"media\": \"u\",\n            \"name\": \"aute ipsum\",\n            \"profile\": \"Ut elit laboris dolor\",\n            \"rel\": {},\n            \"title\": \"ad sit\",\n            \"type\": \"quis nisi in laborum\"\n        },\n        {\n            \"deprecation\": \"eu commodo\",\n            \"href\": \"ipsum\",\n            \"hreflang\": \"deserunt\",\n            \"media\": \"ex et consequat non pariatur\",\n            \"name\": \"esse dolore est\",\n            \"profile\": \"laborum esse\",\n            \"rel\": {},\n            \"title\": \"ess\",\n            \"type\": \"anim adipisicing ea est\"\n        }\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -489,15 +431,22 @@
 											}
 										},
 										"url": {
-											"raw": "{{host}}/api/person/v1/7",
+											"raw": "{{baseUrl}}/api/person/v1/:id",
 											"host": [
-												"{{host}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"person",
 												"v1",
-												"7"
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "91849534",
+													"description": "(Required) id"
+												}
 											]
 										}
 									},
@@ -545,23 +494,24 @@
 									"name": "Exclude a person",
 									"request": {
 										"method": "DELETE",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{bearer_token}}",
-												"type": "text"
-											}
-										],
+										"header": [],
 										"url": {
-											"raw": "{{host}}/api/person/v1/7",
+											"raw": "{{baseUrl}}/api/person/v1/:id",
 											"host": [
-												"{{host}}"
+												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"person",
 												"v1",
-												"7"
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "91849534",
+													"description": "(Required) id"
+												}
 											]
 										}
 									},
@@ -611,17 +561,11 @@
 							"name": "List of people recorded",
 							"request": {
 								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{bearer_token}}",
-										"type": "text"
-									}
-								],
+								"header": [],
 								"url": {
-									"raw": "{{host}}/api/person/v1",
+									"raw": "{{baseUrl}}/api/person/v1",
 									"host": [
-										"{{host}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
@@ -670,16 +614,11 @@
 									{
 										"key": "Content-Type",
 										"value": "application/json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{bearer_token}}",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": " {\n        \"first_name\": \"Lucas\",\n        \"last_name\": \"Duran\",\n        \"address\": \"Some Address in Brazil 1\",\n        \"gender\": \"Male\"\n    }",
+									"raw": "{\n    \"address\": \"consequat dolore anim\",\n    \"first_name\": \"voluptate dolor laboris\",\n    \"gender\": \"laboris in\",\n    \"id\": 55127845,\n    \"last_name\": \"dolore pariatur ut\",\n    \"links\": [\n        {\n            \"deprecation\": \"irure\",\n            \"href\": \"ut\",\n            \"hreflang\": \"veniam Duis ut\",\n            \"media\": \"minim amet deserunt labore cillum\",\n            \"name\": \"ve\",\n            \"profile\": \"tempor dolore eu\",\n            \"rel\": {},\n            \"title\": \"culpa proident id cillum consequat\",\n            \"type\": \"cupidatat do Ut\"\n        },\n        {\n            \"deprecation\": \"laborum consectetur fugiat\",\n            \"href\": \"anim ut\",\n            \"hreflang\": \"cillum anim\",\n            \"media\": \"dolor aute Ut\",\n            \"name\": \"adipisicing anim dolore\",\n            \"profile\": \"aute occaecat\",\n            \"rel\": {},\n            \"title\": \"in esse quis\",\n            \"type\": \"dolore\"\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -687,9 +626,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/api/person/v1",
+									"raw": "{{baseUrl}}/api/person/v1",
 									"host": [
-										"{{host}}"
+										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
@@ -735,30 +674,10 @@
 			]
 		}
 	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "localhost:8080",
+			"value": "//localhost:8080/",
 			"type": "string"
 		}
 	]
