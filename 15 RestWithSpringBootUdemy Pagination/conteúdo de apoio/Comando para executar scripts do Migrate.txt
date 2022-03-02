@@ -1,0 +1,2 @@
+Comando para executar scripts do Migrate:
+mvn flyway:migrate

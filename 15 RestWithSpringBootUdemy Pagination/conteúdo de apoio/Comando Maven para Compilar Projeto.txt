@@ -1,0 +1,2 @@
+Limpa todos os arquivos de compilação, torna a compilar, empacota projeto em um jar e execta
+mvn clean package spring-boot:run
