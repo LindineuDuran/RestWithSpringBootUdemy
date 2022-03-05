@@ -1,0 +1,1301 @@
+{
+	"info": {
+		"_postman_id": "f4975c0b-8156-4b73-aebe-f5a3a4b3cfe8",
+		"name": "RestWithSpringBootUdemy",
+		"description": "REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker\n\nContact Support:\n Name: Lindineu Duran\n Email: lduran355@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "Obtem Token de Autenticação",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if(responseCode.code >= 200 && responseCode.code <= 299)\r",
+											"{\r",
+											"    var jsonData = JSON.parse(responseBody);\r",
+											"    pm.environment.set(\"bearer_token\", pm.response.json().token);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"{{user}}\",\r\n  \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/signin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "book/v1",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Search a book by id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/api/book/v1/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1",
+												"1"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Return a book",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/book/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"book",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"author\": \"ut Excepteur\",\n \"id\": 46435824,\n \"launch_date\": \"1991-03-19T01:52:23.965Z\",\n \"links\": {\n  \"empty\": false\n },\n \"price\": -22940670.82518661,\n \"title\": \"magna Duis exercitation\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update a book",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"author\": \"ipsum tempor\",\n    \"id\": 44884596,\n    \"launch_date\": \"1975-05-16T16:12:25.253Z\",\n    \"price\": -86092025.23675555,\n    \"title\": \"pariatur exercitation\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/api/book/v1/16",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1",
+												"16"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/book/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"book",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"author\": \"ut Excepteur\",\n \"id\": 46435824,\n \"launch_date\": \"1991-03-19T01:52:23.965Z\",\n \"links\": {\n  \"empty\": false\n },\n \"price\": -22940670.82518661,\n \"title\": \"magna Duis exercitation\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Exclude a book",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/api/book/v1/16",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1",
+												"16"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/book/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"book",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "List of books recorded",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/book/v1?page=0&limit=5&direction=desc",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"v1"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return a list of books",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/book/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"author\": \"aute ad commodo amet\",\n  \"id\": 82833296,\n  \"launch_date\": \"1957-05-30T19:09:35.093Z\",\n  \"links\": {\n   \"empty\": true\n  },\n  \"price\": -78675599.81025529,\n  \"title\": \"culpa veniam\"\n },\n {\n  \"author\": \"qui adipisicing cillum\",\n  \"id\": -3384237,\n  \"launch_date\": \"2009-03-04T06:25:26.879Z\",\n  \"links\": {\n   \"empty\": false\n  },\n  \"price\": 54066829.42090711,\n  \"title\": \"ipsum magna mollit\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Find all bookswith token title",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/book/v1/findBookByTitle/code?page=0&limit=12&direction=desc",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"v1",
+										"findBookByTitle",
+										"code"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "12"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return a list of books",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/book/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"author\": \"aute ad commodo amet\",\n  \"id\": 82833296,\n  \"launch_date\": \"1957-05-30T19:09:35.093Z\",\n  \"links\": {\n   \"empty\": true\n  },\n  \"price\": -78675599.81025529,\n  \"title\": \"culpa veniam\"\n },\n {\n  \"author\": \"qui adipisicing cillum\",\n  \"id\": -3384237,\n  \"launch_date\": \"2009-03-04T06:25:26.879Z\",\n  \"links\": {\n   \"empty\": false\n  },\n  \"price\": 54066829.42090711,\n  \"title\": \"ipsum magna mollit\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Save a new book",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{content_accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content_type}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"author\": \"exercitation\",\n    \"id\": -6519276,\n    \"launch_date\": \"1948-10-02T16:06:42.574Z\",\n    \"price\": 36810673.03358522,\n    \"title\": \"adipisicing\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/book/v1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"book",
+										"v1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Save a new book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/book/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"author\": \"ut Excepteur\",\n \"id\": 46435824,\n \"launch_date\": \"1991-03-19T01:52:23.965Z\",\n \"links\": {\n  \"empty\": false\n },\n \"price\": -22940670.82518661,\n \"title\": \"magna Duis exercitation\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "person/v1",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Search a person by id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/api/person/v1/1",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1",
+												"1"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Return a person",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/person/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"person",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"address\": \"laborum deserunt et eiusmod\",\n \"first_name\": \"dolor dolore\",\n \"gender\": \"aliqua magna\",\n \"id\": 17364756,\n \"last_name\": \"non id elit\",\n \"links\": {\n  \"empty\": false\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update a person",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Ana Sophia\",\n    \"last_name\": \"Duran\",\n    \"address\": \"Some Address in Brazil 1\",\n    \"gender\": \"Female\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/api/person/v1/7",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1",
+												"7"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/person/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"person",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"address\": \"laborum deserunt et eiusmod\",\n \"first_name\": \"dolor dolore\",\n \"gender\": \"aliqua magna\",\n \"id\": 17364756,\n \"last_name\": \"non id elit\",\n \"links\": {\n  \"empty\": false\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "Disable a person by id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"first_name\": \"Ana Sophia\",\n    \"last_name\": \"Duran\",\n    \"address\": \"Some Address in Brazil 1\",\n    \"gender\": \"Female\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/api/person/v1/7",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1",
+												"7"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/person/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"person",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"address\": \"laborum deserunt et eiusmod\",\n \"first_name\": \"dolor dolore\",\n \"gender\": \"aliqua magna\",\n \"id\": 17364756,\n \"last_name\": \"non id elit\",\n \"links\": {\n  \"empty\": false\n }\n}"
+										}
+									]
+								},
+								{
+									"name": "Exclude a person",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}/api/person/v1/7",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1",
+												"7"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/person/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"person",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Disable a person by id",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "{{content_accept}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "{{content_type}}"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{bearer_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/api/person/v1/6",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1",
+												"6"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/person/v1/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"person",
+														"v1",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "91849534",
+															"description": "(Required) id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"address\": \"laborum deserunt et eiusmod\",\n \"first_name\": \"dolor dolore\",\n \"gender\": \"aliqua magna\",\n \"id\": 17364756,\n \"last_name\": \"non id elit\",\n \"links\": {\n  \"empty\": false\n }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "List of people recorded",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{content_accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/person/v1?page=0&limit=50&direction=desc",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"v1"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "50"
+										},
+										{
+											"key": "direction",
+											"value": "desc"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return a list of people",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/person/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"address\": \"enim\",\n  \"first_name\": \"ut aute aliquip\",\n  \"gender\": \"ipsum sint cupidatat officia\",\n  \"id\": -33382287,\n  \"last_name\": \"dolor aliquip est\",\n  \"links\": {\n   \"empty\": false\n  }\n },\n {\n  \"address\": \"deserunt in ullamco aute\",\n  \"first_name\": \"consequat\",\n  \"gender\": \"sed aliquip sint\",\n  \"id\": -74600582,\n  \"last_name\": \"dolore laborum consequat ex\",\n  \"links\": {\n   \"empty\": true\n  }\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Save a new person",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n        \"first_name\": \"Lucas\",\n        \"last_name\": \"Duran\",\n        \"address\": \"Some Address in Brazil 1\",\n        \"gender\": \"Male\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/person/v1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"v1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Save a new person",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/person/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"person",
+												"v1"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"address\": \"laborum deserunt et eiusmod\",\n \"first_name\": \"dolor dolore\",\n \"gender\": \"aliqua magna\",\n \"id\": 17364756,\n \"last_name\": \"non id elit\",\n \"links\": {\n  \"empty\": false\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Find all people with token name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{content_accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/person/v1/findPersonByName/and?page=0&limit=20&direction=asc",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"person",
+										"v1",
+										"findPersonByName",
+										"and"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "direction",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "File",
+					"item": [
+						{
+							"name": "Download a file",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/api/file/v1/downloadFile/Guia+de+Básico+de+GIT.pdf",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"file",
+										"v1",
+										"downloadFile",
+										"Guia+de+Básico+de+GIT.pdf"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return a list of books",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/book/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"author\": \"aute ad commodo amet\",\n  \"id\": 82833296,\n  \"launch_date\": \"1957-05-30T19:09:35.093Z\",\n  \"links\": {\n   \"empty\": true\n  },\n  \"price\": -78675599.81025529,\n  \"title\": \"culpa veniam\"\n },\n {\n  \"author\": \"qui adipisicing cillum\",\n  \"id\": -3384237,\n  \"launch_date\": \"2009-03-04T06:25:26.879Z\",\n  \"links\": {\n   \"empty\": false\n  },\n  \"price\": 54066829.42090711,\n  \"title\": \"ipsum magna mollit\"\n }\n]"
+								}
+							]
+						},
+						{
+							"name": "Upload a file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{content_accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content_type}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/D:/Downloads/REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker/Guia de Básico de GIT.pdf"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/file/v1/uploadFile",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"file",
+										"v1",
+										"uploadFile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Save a new book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/book/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"author\": \"ut Excepteur\",\n \"id\": 46435824,\n \"launch_date\": \"1991-03-19T01:52:23.965Z\",\n \"links\": {\n  \"empty\": false\n },\n \"price\": -22940670.82518661,\n \"title\": \"magna Duis exercitation\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Upload multiple files",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{content_accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content_type}}"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": [
+												"/D:/Downloads/REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker/16+RestWithSpringBootUdemy+Files.zip",
+												"/D:/Downloads/REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker/0208+Os+Verbos+HTTP+e+o+REST.mp3",
+												"/D:/Downloads/REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker/Guia+de+Básico+de+GIT.pdf"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/api/file/v1/uploadMultipleFiles?",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"file",
+										"v1",
+										"uploadMultipleFiles"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Save a new book",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/book/v1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"book",
+												"v1"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"author\": \"ut Excepteur\",\n \"id\": 46435824,\n \"launch_date\": \"1991-03-19T01:52:23.965Z\",\n \"links\": {\n  \"empty\": false\n },\n \"price\": -22940670.82518661,\n \"title\": \"magna Duis exercitation\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
