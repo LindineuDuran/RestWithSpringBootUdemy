@@ -7,3 +7,4 @@
 Este é o repositório dos codigos fonte desenvolvidos no curso [leandrocgsi/RestWithSpringBootUdemy](https://github.com/leandrocgsi/RestWithSpringBootUdemy)
 
 Este é o repositório com o protótipo do projeto [leandrocgsi/RestWithSpringBootUdemyArchetype](https://github.com/leandrocgsi/RestWithSpringBootUdemyArchetype)
+- [Baixe o e-Book grátis "Docker um guia Rápido"](https://pub.erudio.com.br/guia-docker)

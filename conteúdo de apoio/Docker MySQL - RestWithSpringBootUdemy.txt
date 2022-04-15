@@ -1,0 +1,1 @@
+docker container run -d --name db -p 3306:3306 -v local-mysqldb:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=docker -e bind-address:0.0.0.0 -e MYSQL_USER=docker -e MYSQL_PASSWORD=docker -e MYSQL_ROOT_HOST=% mysql:5.7.22

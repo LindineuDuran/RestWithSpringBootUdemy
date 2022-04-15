@@ -1,0 +1,24 @@
+Reconstruir Imagens da Aplicação e Subir os Containers da Aplicação:
+docker-compose up -d --build
+
+Listar Aplicações em Execução
+docker ps -a
+
+Exibir Logs da Aplicação:
+docker logs [CONTAINER ID]
+
+Baixar Todos os Containers:
+docker-compose down
+
+Listar Imagens:
+docker images
+
+Logar no DockerIo:
+docker login docker.io
+user: [SEU USUÁRIO]
+password: [SUA SENHA]
+
+Subir as Imagens para o DockerHub:
+docker push [DOCKER NAME]
+docker push lduran355/rest-with-spring-boot-udemy
+docker push lduran355/mysql-rest-with-spring-boot-udemy

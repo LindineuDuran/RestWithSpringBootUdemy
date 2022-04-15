@@ -1,5 +1,0 @@
-Swagger-UI
-http://localhost:8080/swagger-ui/#/
-
-API-Docs
-http://localhost:8080/v2/api-docs
