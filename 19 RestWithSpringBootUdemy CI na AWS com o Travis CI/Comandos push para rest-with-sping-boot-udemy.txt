@@ -1,0 +1,20 @@
+Comandos push para rest-with-sping-boot-udemy, devem ser executados no PowerShell
+
+Docker precisa estar rodando
+
+Use as etapas a seguir para autenticar e enviar uma imagem para o repositório. Para obter outros métodos de autenticação do registro, incluindo o auxiliar de credenciais do Amazon ECR, consulte Autenticação do registro .
+
+1. Recupere um token de autenticação e autentique seu cliente Docker em seu registro.
+Use o AWS CLI:
+$(aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 174185271900.dkr.ecr.sa-east-1.amazonaws.com)
+
+2. Crie sua imagem do Docker usando o comando a seguir. Para obter informações sobre como criar um arquivo Docker do zero, consulte as instruções aqui . Você pode pular esta etapa se sua imagem já estiver construída:
+docker build -t rest-with-spring-boot-udemy .
+
+Este comando é melhor que o de cima:  docker-compose up -d --build
+
+3. Depois que a compilação for concluída, marque sua imagem para que você possa enviá-la para este repositório:
+docker tag lduran355/rest-with-spring-boot-udemy:latest 174185271900.dkr.ecr.sa-east-1.amazonaws.com/rest-with-spring-boot-udemy:latest
+
+4. Execute o seguinte comando para enviar essa imagem para o repositório da AWS recém-criado:
+docker push 174185271900.dkr.ecr.sa-east-1.amazonaws.com/rest-with-spring-boot-udemy:latest
