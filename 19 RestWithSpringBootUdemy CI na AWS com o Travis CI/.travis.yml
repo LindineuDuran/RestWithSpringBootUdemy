@@ -13,7 +13,6 @@ before_install:
   - mvn clean package
   - cd ..
   - echo "We are in the Docker Folder!"
-  - mvn clean package
 script:
   - echo "Building the Application!"
   - docker-compose build
@@ -25,7 +24,7 @@ deploy:
     docker tag rest-with-spring-boot-udemy:latest lduran355/rest-with-spring-boot-udemy:$TRAVIS_JOB_ID;
     docker push lduran355/rest-with-spring-boot-udemy:$TRAVIS_JOB_ID;
   on:
-    branch: master
+    branch: main
 after_success:
   - sudo apt-get -y install python3-pip python-dev
   - sudo pip3 install -U setuptools
@@ -39,7 +38,7 @@ after_success:
   - $(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 174185271900.dkr.ecr.sa-east-1.amazonaws.com)
   - docker tag lduran355/rest-with-spring-boot-udemy:latest $IMAGE_REPO_URL:$TRAVIS_JOB_ID
   - docker push $IMAGE_REPO_URL:$TRAVIS_JOB_ID
-  - add-apt-repository ppa: eugenesan/ppa
+  - add-apt-repository ppa:eugenesan/ppa
   - apt-get update
   - apt-get install jq -y
   - curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
