@@ -17,7 +17,7 @@ script:
   - echo "Building the Application!"
   - docker-compose build
 before_deploy:
-  - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+  - echo $DOCKERHUB_TOKEN | docker login --username $DOCKERHUB_USER --password-stdin
 deploy:
   provider: script
   script:
