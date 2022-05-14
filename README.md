@@ -10,3 +10,4 @@ Este é o repositório dos codigos fonte desenvolvidos no curso [leandrocgsi/Res
 
 Este é o repositório com o protótipo do projeto [leandrocgsi/RestWithSpringBootUdemyArchetype](https://github.com/leandrocgsi/RestWithSpringBootUdemyArchetype)
 - [Baixe o e-Book grátis "Docker um guia Rápido"](https://pub.erudio.com.br/guia-docker)
+- [FIXING TOOMANYREQUESTS ERROR WHEN USING DOCKER WITH TRAVIS-CI / The command "echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin" failed and exited with 1 during](https://londonappdeveloper.com/fixing-toomanyrequests-error-when-using-docker-with-travis-ci/)
