@@ -38,7 +38,7 @@ public class SwaggerConfig
 	private ApiInfo apiInfo()
 	{
 		return new ApiInfoBuilder()
-				.title("RestWithSpringBootUdemy - Foo Bar")
+				.title("RestWithSpringBootUdemy - Bubaloo")
 				.description("REST API's RESTFul do 0 à AWS com Spring Boot 2.x e Docker")
 				.version("v1")
 				.license("Apache License Version 2.0")
