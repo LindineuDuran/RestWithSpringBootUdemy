@@ -13,16 +13,7 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.llduran.data.vo.v1.PersonVO;
 import br.com.llduran.services.PersonServices;
@@ -32,6 +23,7 @@ import io.swagger.annotations.ApiOperation;
 @Api(tags = "PersonEndpoint")
 @RestController
 @RequestMapping("/api/person/v1")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PersonController {
 	
 	@Autowired
