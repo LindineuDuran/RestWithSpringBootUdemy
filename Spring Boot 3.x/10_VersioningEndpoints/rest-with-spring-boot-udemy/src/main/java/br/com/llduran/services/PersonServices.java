@@ -1,10 +1,8 @@
 package br.com.llduran.services;
 
 import br.com.llduran.data.vo.v1.PersonVO;
-import br.com.llduran.data.vo.v2.PersonVOV2;
 import br.com.llduran.exceptions.ResourceNotFoundException;
 import br.com.llduran.mapper.DozerMapper;
-import br.com.llduran.mapper.custom.PersonMapper;
 import br.com.llduran.model.Person;
 import br.com.llduran.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +12,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
-@Service public class PersonServices
+@Service
+public class PersonServices
 {
-	@Autowired private PersonRepository repository;
-
-	@Autowired PersonMapper mapper;
+	@Autowired
+	private PersonRepository repository;
+	private final AtomicLong counter = new AtomicLong();
 
 	private Logger logger = Logger.getLogger(PersonServices.class.getName());
 
@@ -50,14 +49,6 @@ import java.util.logging.Logger;
 		return vo;
 	}
 
-	public PersonVOV2 createV2(PersonVOV2 person)
-	{
-		logger.info("Creating one person with V2!");
-		var entity = mapper.convertVoTOEntity(person);
-		var vo = mapper.convertEntityToVo(repository.save(entity));
-		return vo;
-	}
-
 	public PersonVO update(Long id, PersonVO person)
 	{
 		logger.info("Updating one person!");
@@ -78,7 +69,7 @@ import java.util.logging.Logger;
 		logger.info("Deleting one person!");
 
 		var entity = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+			.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
 		repository.deleteById(id);
 	}
