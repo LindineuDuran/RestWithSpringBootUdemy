@@ -1292,15 +1292,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/person/v1",
+							"raw": "localhost:8080/person",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
-								"person",
-								"v1"
+								"person"
 							]
 						}
 					},
@@ -1324,15 +1322,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/person/v1/2",
+							"raw": "localhost:8080/person/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
 								"person",
-								"v1",
 								"2"
 							]
 						}
@@ -1346,7 +1342,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"first_name\": \"Lindineu\",\r\n\"last_name\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Male\"\r\n}",
+							"raw": "{\r\n\"firstName\": \"Lindineu\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Male\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1354,28 +1350,26 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/person/v1",
+							"raw": "localhost:8080/person",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
-								"person",
-								"v1"
+								"person"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Save a  person - v2",
+					"name": "Save a second person",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"firstName\": \"Silvia\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\",\r\n\"birthDay\": \"1961-09-13\"\r\n}",
+							"raw": "{\r\n\"firstName\": \"Silvia\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1383,16 +1377,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/person/v1/v2",
+							"raw": "localhost:8080/person",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
-								"person",
-								"v1",
-								"v2"
+								"person"
 							]
 						}
 					},
@@ -1405,7 +1396,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"first_name\": \"Silvia\",\r\n\"last_name\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\"\r\n}",
+							"raw": "{\r\n\"firstName\": \"Silvia\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1413,15 +1404,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/person/v1/2",
+							"raw": "localhost:8080/person/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
 								"person",
-								"v1",
 								"2"
 							]
 						}
@@ -1443,15 +1432,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/person/v1/2",
+							"raw": "localhost:8080/person/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"api",
 								"person",
-								"v1",
 								"2"
 							]
 						}
