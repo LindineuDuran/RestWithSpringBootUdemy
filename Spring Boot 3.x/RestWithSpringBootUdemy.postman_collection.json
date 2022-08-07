@@ -1292,13 +1292,15 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/person",
+							"raw": "localhost:8080/api/person/v1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"person"
+								"api",
+								"person",
+								"v1"
 							]
 						}
 					},
@@ -1322,14 +1324,256 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/person/2",
+							"raw": "localhost:8080/api/person/v1/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"person",
+								"v1",
 								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search a person by id - Media Type JSON (Query Param)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/person/v1/2?mediaType=json",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"person",
+								"v1",
+								"2"
+							],
+							"query": [
+								{
+									"key": "mediaType",
+									"value": "json"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search a person by id - Media Type JSON (Via Header)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/person/v1/2?",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"person",
+								"v1",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search a person by id - Media Type XML (Query Param)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/person/v1/2?mediaType=xml",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"person",
+								"v1",
+								"2"
+							],
+							"query": [
+								{
+									"key": "mediaType",
+									"value": "xml"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search a person by id - Media Type XML (VIa Header)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/person/v1/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"person",
+								"v1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search a person by id - Media Type YML (VIa Header)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/x-yaml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/person/v1/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"person",
+								"v1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search a person by id - Media Type YML (Query Param)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/person/v1/2?mediaType=x-yaml",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"person",
+								"v1",
+								"2"
+							],
+							"query": [
+								{
+									"key": "mediaType",
+									"value": "x-yaml"
+								}
 							]
 						}
 					},
@@ -1342,7 +1586,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"firstName\": \"Lindineu\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Male\"\r\n}",
+							"raw": "{\r\n\"first_name\": \"Lindineu\",\r\n\"last_name\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Male\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1350,26 +1594,28 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/person",
+							"raw": "localhost:8080/api/person/v1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"person"
+								"api",
+								"person",
+								"v1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Save a second person",
+					"name": "Save a  person - v2",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"firstName\": \"Silvia\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\"\r\n}",
+							"raw": "{\r\n\"firstName\": \"Silvia\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\",\r\n\"birthDay\": \"1961-09-13\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1377,13 +1623,16 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/person",
+							"raw": "localhost:8080/api/person/v1/v2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"person"
+								"api",
+								"person",
+								"v1",
+								"v2"
 							]
 						}
 					},
@@ -1396,7 +1645,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"firstName\": \"Silvia\",\r\n\"lastName\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\"\r\n}",
+							"raw": "{\r\n\"first_name\": \"Silvia\",\r\n\"last_name\": \"Duran\",\r\n\"address\": \"São José dos Campos - São Paulo - Brasil\",\r\n\"gender\": \"Female\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1404,14 +1653,16 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/person/2",
+							"raw": "localhost:8080/api/person/v1/11",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"person",
-								"2"
+								"v1",
+								"11"
 							]
 						}
 					},
@@ -1432,13 +1683,15 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/person/2",
+							"raw": "localhost:8080/api/person/v1/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
 								"person",
+								"v1",
 								"2"
 							]
 						}
