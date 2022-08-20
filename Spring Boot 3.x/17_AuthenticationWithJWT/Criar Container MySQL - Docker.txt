@@ -1,0 +1,1 @@
+docker run --detach --restart=always --env MYSQL_ROOT_PASSWORD=admin123 --env MYSQL_USER=todos-user --env MYSQL_PASSWORD=admin123 --env MYSQL_DATABASE=rest_with_spring_boot --name mysql --publish 3306:3306 --volume mysql-database-volume:/var/lib/mysql mysql:8.0.29
