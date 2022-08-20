@@ -20,7 +20,7 @@
 		<java.version>18</java.version>
 		<dozer.version>6.4.0</dozer.version>
 		<springdoc.version>2.0.0-M3</springdoc.version>
-		<testcontainers.version>1.16.3</testcontainers.version>
+		<testcontainers.version>1.17.2</testcontainers.version>
 		<rest-assured.version>4.5.0</rest-assured.version>
 	</properties>
 
