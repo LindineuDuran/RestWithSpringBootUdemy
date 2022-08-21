@@ -1,6 +1,7 @@
 package br.com.llduran.exceptions.handler;
 
 import br.com.llduran.exceptions.ExceptionResponse;
+import br.com.llduran.exceptions.InvalidJwtAuthenticationException;
 import br.com.llduran.exceptions.RequiredObjectIsNullException;
 import br.com.llduran.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Date;
 
-@ControllerAdvice @RestController public class CustomizedResponseEntityExceptionHandler
+@ControllerAdvice
+@RestController
+public class CustomizedResponseEntityExceptionHandler
 		extends ResponseEntityExceptionHandler
 {
 	@ExceptionHandler(Exception.class)
@@ -44,5 +47,14 @@ import java.util.Date;
 				request.getDescription(false));
 
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler(InvalidJwtAuthenticationException.class)
+	public final ResponseEntity<ExceptionResponse> handleInvalidJwtAuthenticationExceptions(Exception ex, WebRequest request)
+	{
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
+				request.getDescription(false));
+
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.FORBIDDEN);
 	}
 }
