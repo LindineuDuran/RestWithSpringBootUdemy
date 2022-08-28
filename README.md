@@ -20,7 +20,6 @@
 * [Documentando aplicações REST com SpringBoot e Swagger](http://www.semeru.com.br/blog/documentando-aplicacoes-restfull-com-springboot-e-swagger/)
 * [Entendendo HATEOAS](http://www.semeru.com.br/blog/entendendo_hateoas/)
 * [Aplicações RESTful HATEOAS com SpringBoot](http://www.semeru.com.br/blog/aplicacoes-restfull-hateoas-com-springboot/)
-* [XML Serialization and Deserialization with Jackson](https://www.baeldung.com/jackson-xml-serialization-and-deserialization)
 
 # HTTP Status Codes adotados pelas API's mais famosas do mundo
 

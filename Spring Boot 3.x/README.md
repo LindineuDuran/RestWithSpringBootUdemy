@@ -9,3 +9,4 @@
 
 - [Crie um banco de dados MySQL e conecte-se a ele com o Amazon RDS](https://aws.amazon.com/pt/getting-started/hands-on/create-mysql-db/)
 - [Baixe o e-Book grátis "Docker um guia Rápido"](https://pub.erudio.com.br/guia-docker)
+- [XML Serialization and Deserialization with Jackson](https://www.baeldung.com/jackson-xml-serialization-and-deserialization)
