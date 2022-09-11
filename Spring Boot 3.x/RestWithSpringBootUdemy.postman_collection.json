@@ -1281,7 +1281,30 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/x-yaml",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -1346,7 +1369,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -1390,6 +1419,11 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1430,7 +1464,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -1474,6 +1514,11 @@
 								"key": "Accept",
 								"value": "application/xml",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1512,6 +1557,11 @@
 							{
 								"key": "Accept",
 								"value": "application/x-yaml",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
 								"type": "text"
 							}
 						],
