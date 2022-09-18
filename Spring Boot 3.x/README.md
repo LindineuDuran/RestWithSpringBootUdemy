@@ -7,6 +7,8 @@
 
 - [Este é o repositório com o protótipo do projeto - leandrocgsi/RestWithSpringBootUdemyArchetype](https://github.com/leandrocgsi/RestWithSpringBootUdemyArchetype)
 
+- [![Docker Hub Repo](https://img.shields.io/docker/pulls/lduran355/rest-with-spring-boot-udemy.svg)](https://hub.docker.com/repository/docker/lduran355/rest-with-spring-boot-udemy)
 - [Crie um banco de dados MySQL e conecte-se a ele com o Amazon RDS](https://aws.amazon.com/pt/getting-started/hands-on/create-mysql-db/)
 - [Baixe o e-Book grátis "Docker um guia Rápido"](https://pub.erudio.com.br/guia-docker)
 - [XML Serialization and Deserialization with Jackson](https://www.baeldung.com/jackson-xml-serialization-and-deserialization)
+- [Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0](https://exerror.com/failed-to-execute-goal-org-apache-maven-pluginsmaven-compiler-plugin3-8-0compile-default-compile-on-project-demo-fatal-error-compiling-invalid-target-release-11/)

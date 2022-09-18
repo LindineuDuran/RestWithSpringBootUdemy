@@ -1,0 +1,4 @@
+Executar o Docker Compose: docker compose up -d --build
+Listar imagens existentes: docker images
+Listar containers: docker ps
+Acompanhar tudo o que acontece com uma aplicação dentro de um container: docker logs -f CONTAINER_ID

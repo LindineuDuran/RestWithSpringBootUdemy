@@ -1,0 +1,6 @@
+before calling maven, try using:
+set JAVA_HOME=C:\Program Files\Java\jdk-18.0.2\bin
+
+Comando Maven para Compilar o Projeto:
+mvn clean package -DskipTests
+
